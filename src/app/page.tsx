@@ -6,7 +6,7 @@ import SearchInput from './components/SearchInput/SearchInput';
 import Image from 'next/image';
 import ChevronLeftSVG from './components/icons/chevron-left';
 import ChevronRightSVG from './components/icons/chevron-right';
-import Loader from './components/loader';
+import Loader from './components/Loader';
 
 interface ApiResponse {
   result: {

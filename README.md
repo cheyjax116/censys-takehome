@@ -7,7 +7,7 @@
 Clone this repository and navigate into the project directory:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/cheyjax116/censys-takehome.git
 cd censys-takehome
 ```
 
@@ -50,3 +50,5 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 - **Search Bar**: At the top of the page, you'll find a search bar where you can enter queries to interact with the hosts API. Type in your desired search term and click the **Search** button or press **Enter** on your keyboard to see results.
 
 - **Navigating Results**: After performing a search, results will be displayed in a paginated format. Use the **Previous** and **Next** buttons located at the bottom of the results list to navigate through additional pages of results.
+
+![censys-takehome-walkthrough](https://github.com/user-attachments/assets/537a395c-bc4c-449f-98f7-cb346fb3d549)
