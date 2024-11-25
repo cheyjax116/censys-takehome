@@ -74,7 +74,7 @@ export default function Home() {
         <SearchInput
           query={query}
           setQuery={setQuery}
-          onSearch={handleSearch}
+          handleSearch={handleSearch}
         />
       </div>
 

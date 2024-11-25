@@ -5,13 +5,13 @@ import ClearIconSVG from '../icons/clear-icon';
 interface SearchInputProps {
   query: string;
   setQuery: (query: string) => void;
-  onSearch: () => void;
+  handleSearch: () => void;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
   query,
   setQuery,
-  onSearch,
+  handleSearch,
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -23,7 +23,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
   const handleEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      onSearch();
+      handleSearch();
     }
   };
 
@@ -51,7 +51,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       <button
         type='button'
         className={styles.buttonContainer}
-        onClick={onSearch}
+        onClick={handleSearch}
       >
         Search
       </button>
