@@ -24,6 +24,7 @@ export default function Home() {
   const [results, setResults] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [cursorToken, setCursorToken] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const fetchResults = async () => {
     setLoading(true);
@@ -33,8 +34,13 @@ export default function Home() {
         cursorToken,
       });
       setResults(response.data);
-    } catch (err) {
-      console.log(err);
+    } catch (error: any) {
+      console.log(error);
+      if (error.response && error.response.status === 400) {
+        setErrorMessage(
+          'API Crendentials may be missing or incorrect. Please update and try again.'
+        );
+      }
     } finally {
       setLoading(false);
     }
@@ -46,6 +52,7 @@ export default function Home() {
 
   const handleSearch = () => {
     setCursorToken('');
+    setErrorMessage('');
     fetchResults();
   };
 
@@ -89,6 +96,9 @@ export default function Home() {
               Results: {results?.result?.total.toLocaleString('en-US')}
             </div>
             <main className='flex justify-center pb-10 '>
+              <div>
+                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+              </div>
               <div>
                 {results?.result?.hits?.map((item: any, index: number) => (
                   <div key={item.id || index} className='border-b-2 mt-5'>

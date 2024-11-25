@@ -10,6 +10,10 @@ export async function POST(request: Request) {
   const CENSYS_API_ID = process.env.CENSYS_API_ID as string;
   const CENSYS_API_SECRET = process.env.CENSYS_API_SECRET as string;
   
+  if (!CENSYS_API_ID || !CENSYS_API_SECRET) {
+    return new Response(JSON.stringify({ error: "API credentials are missing" }), { status: 400 });
+  }
+
   try {
     const response = await axios.get(
       'https://search.censys.io/api/v2/hosts/search',
@@ -30,6 +34,6 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify(response.data), {status: 200})
   } catch (error) {
     console.log(error);
-    return new Response(JSON.stringify(error), {status: 500})
+    return new Response(JSON.stringify({error: "Error fetching results"}), {status: 500})
   }
 }
