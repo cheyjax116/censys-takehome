@@ -1,0 +1,17 @@
+@tailwind components;
+
+.mainContainer {
+  @apply w-full flex rounded-md border-2 border-gray-300 overflow-hidden mx-auto
+}
+
+.inputContainer {
+  @apply flex-grow w-full outline-none bg-white text-gray-600 text-sm px-4 py-3
+}
+
+.buttonContainer {
+  @apply flex items-center justify-center bg-[#385cff] px-5 text-white
+}
+
+.clearButton {
+  @apply flex items-center justify-center px-2 text-slate-500 bg-white
+}
